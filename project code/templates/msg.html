@@ -1,0 +1,25 @@
+{% if session['role'] == 'admin' %}
+    {% include "admin_head.html" %}
+{% elif session['role'] == 'machinery_provider' %}
+    {% include "provider_head.html" %}
+{% elif session['role'] == 'farmer' %}
+    {% include "farmer_head.html" %}
+{% else %}
+    {% include "head.html" %}
+{% endif %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 mt-5">
+            <div class="card p-3 mt-5">
+                <div class="text-center">
+                    <img class="img-top " src="https://imgs.search.brave.com/JpgqMaKJpB7TVdD1-S74Y0584jxvUAprQaUMozZ-wwQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgy/NzczOTAzL3Bob3Rv/L3dhcm5pbmctc2ln/bi1leGNsYW1hdGlv/bi1wb2ludC5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9dDlm/R3VMTWR2RTBjNlBu/dXFNWXIxWUd5NDZG/X2JOdE90ZVE0T1pD/MHhaST0" style="height:70px;width:90px;border-radius:50%;" >
+                    <div><strong>{{message}}</strong></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

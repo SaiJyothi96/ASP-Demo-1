@@ -1,0 +1,27 @@
+{% if session['role'] == 'admin' %}
+    {% include "admin_head.html" %}
+{% elif session['role'] == 'machinery_provider' %}
+    {% include "provider_head.html" %}
+{% elif session['role'] == 'farmer' %}
+    {% include "farmer_head.html" %}
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="h6 mt-3 text-center">View Machinery Provider</div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card2 p-3 mt-5">
+                {% for machinery_provider in machinery_providers %}
+                {% set location = get_location_by_location_id(machinery_provider[6])%}
+                <div class="text-center h4">{{machinery_provider[1]}}</div>
+                <div class="text-center">{{machinery_provider[2]}}</div>
+                <div class="text-center">{{machinery_provider[3]}}</div>
+                <div class="text-center">{{machinery_provider[5]}}</div>
+                <div class="text-center">Location :{{location[1]}}</div>
+                <div class="text-center">Zipcode :{{location[2]}}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

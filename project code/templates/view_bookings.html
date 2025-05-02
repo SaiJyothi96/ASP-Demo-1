@@ -1,0 +1,51 @@
+{% if session['role'] == 'admin' %}
+    {% include "admin_head.html" %}
+{% elif session['role'] == 'machinery_provider' %}
+    {% include "provider_head.html" %}
+{% elif session['role'] == 'farmer' %}
+    {% include "farmer_head.html" %}
+{% endif %}
+
+<div class="container">
+    <div class="text-center h3">View Bookings</div>
+    <div class="row mt-3" style="font-size:13px;">
+    {% for booking in bookings :%}
+    {% set machinery = get_machinery_by_machinery_id(booking[8])%}
+    {% set farmer = get_farmer_by_farmer_id(booking[7])%}
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <div class="card2 p-3">
+                <div class="row">
+                    <div class="card-title text-center h5">{{machinery[1]}}</div>
+                    <div class="">
+                      <img src="../static/{{machinery[2]}}" style="width:100%;">
+                    </div>
+                    <div class="text-center">The hourly rate for the operation was <b>${{machinery[3]}}</b>.</div>
+                    <div class=""><b>Booked By:</b></div>
+                        <div  class="text-center mt-1" style="font-size:13px;">{{farmer[1]}}</div>
+                        <div  class="text-center" style="font-size:13px;">{{farmer[2]}}</div>
+                        <div  class="text-center" style="font-size:13px;">{{farmer[3]}}</div>
+                    <div class="text-center">Status of booking is <b>{{booking[4]}}</b></div>
+                    <div class="text-center mt-1">
+                      {% if session['role'] == 'farmer':%}
+                          {% if booking[4] == 'Booked':%}
+                              <a href="/cancel_booking?booking_id={{booking[0]}}" style="border-radius:15px; font-size:15px; font-family:cursive; background-color: #f05975;" class="btn btn-danger w-80">Cancel Booking</a>
+                          {% endif %}
+                      {% endif %}
+                    </div>
+                    <div class="mt-2">
+                        <a href="/view_payments?booking_id={{booking[0]}}"  class="btn btn-success w-100">View Payments</a>
+                    </div>
+                    {% if session['role'] == 'farmer':%}
+                        {% if booking[4] != 'Cancelled' and booking[4] == 'Booked' %}
+                            <div class="mt-2">
+                                <a href="/pay_remaining_amount?booking_id={{booking[0]}}" style="border-radius:15px; font-size:15px; font-family:cursive; background-color: #f05975;" class="btn btn-success w-100">Pay Remaining Amount</a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{% if session['role'] == 'admin' %}
+    {% include "admin_head.html" %}
+{% elif session['role'] == 'machinery_provider' %}
+    {% include "provider_head.html" %}
+{% elif session['role'] == 'farmer' %}
+    {% include "farmer_head.html" %}
+{% endif %}
+
+<div class="container">
+    <div class="text-center h3">View payment</div>
+    {% for payment in payments %}
+        <div class="card2 p-3 mt-3">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3">
+                    <div class="h6">Card NO:</div>
+                    <div>{{payment[6]}}</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="h6">Holder Name:</div>
+                    <div>{{payment[7]}}</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="h6">Amount:</div>
+                    <div>$ {{payment[1]}}</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="h6">Payment Type:</div>
+                    <div>{{payment[8]}}</div>
+                </div>
+                <div class="col-md-1">
+                    <div class="h6">status:</div>
+                    <div>{{payment[3]}}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

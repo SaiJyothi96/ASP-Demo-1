@@ -1,0 +1,52 @@
+{% include "provider_head.html" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <form  action="add_machinery1_action" method='post' enctype="multipart/form-data">
+            <div class="tab-content container-fluid mt-1"></div>
+            <div class="card2 p-3 ">
+            <h2 style="text-align: center;">Add Machinery</h2>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-2">
+                        <label>Choose Machinery Type</label>
+                        <select name="machinery_type_id" id="machinery_type_id" class="form-control">
+                            <option value="">Choose Machinery Type</option>
+                            {% for machinery_type in machinery_types %}
+                            <option value="{{machinery_type[0]}}">{{machinery_type[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="machinery_name">Machinery Name</label>
+                        <input type="text" name="machinery_name" id="machinery_name" class="form-control" placeholder="Enter Machinery Name" required>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                         <label for="price_per_hour">Price Per Hour</label>
+                        <input type="number" name="price_per_hour" id="price_per_hour" class="form-control" placeholder="Enter Price Per Hour" required>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="picture">Picture</label>
+                        <input type="file" name="picture"  id="picture" class="form-control" placeholder="choose picture" required>
+                    </div>
+                    <div class=" mt-2">
+                        <label for="description">Description</label>
+                        <textarea  name="description" id="description" class="form-control" placeholder="Write description here" required></textarea>
+                    </div>
+                </div>
+                <div class="">
+                    <input type="submit" value="Add Machinery" class="btn w-100 mt-2" style="background-color: gray">
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+
+
