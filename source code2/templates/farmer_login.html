@@ -1,0 +1,32 @@
+{% include "head.html" %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="content mt-15">
+        "Modern agricultural machinery transforms farming into an efficient, sustainable, and precision-driven industry."</div>
+    </div>
+       <div class="col-md-4 mt-3">
+            <div class="card2 mt-5 p-3" style="border-radius: 25px">
+                <form action="farmer_login_action" method="post">
+                    <div class="text-center h4">Farmer Login</div>
+                    <div class="mt-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" name="email" id="email" placeholder="Enter Email" required class="form-control">
+                    </div>
+                    <div class="mt-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" name="password" id="password" placeholder="Enter Password" required class="form-control">
+                    </div>
+                    <div class="mt-3">
+                      <input type="submit" value="Login" class="btn w-100 mt-2" style="background-color: gray">
+                    </div>
+                    If you don't have account click and register?here
+                    <div class="">
+                    <a href="/farmer_registration" class="btn w-100 mt-2" style="background-color: gray">Register</a></div>
+                </form>
+            </div>
+        </div>
+  </div>
+</div>

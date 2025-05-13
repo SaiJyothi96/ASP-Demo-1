@@ -1,0 +1,29 @@
+{% include "admin_head.html" %}
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <h5>Machineries</h5>
+            <p class="mb-0">{{ machinery_count }}</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <form action="admin_home">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="datetime-local" name="from_date" class="form-control p-2">
+                    </div>
+                     <div class="col-md-4">
+                         <input type="datetime-local" name="to_date" class="form-control p-2">
+                     </div>
+                     <div class="col-md-4">
+                         <input type="submit" value="Search" class="btn btn-primary w-100">
+                     </div>
+                </div>
+
+            </form>
+            <h5>Machinery Bookings</h5>
+            <p class="mb-0">{{ machinery_booking_count }}</p>
+        </div>
+    </div>
+</div>

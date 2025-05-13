@@ -1,0 +1,43 @@
+{% include "admin_head.html"%}
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-4 mt-3">
+          <div class="card2 mt-5 p-3" style="border-radius: 25px">
+              <form action="add_machinery_types_action" method="post">
+                  <div class="text-center h4">Add Machinery Type</div>
+                  <div class="mt-3">
+                      <label for="machinery_type" class="form-label">Machinery Type</label>
+                      <input type="text" name="machinery_type" id="machinery_type" placeholder="Enter Machinery Type" required class="form-control">
+                  </div>
+                  <div class="mt-3">
+                      <input type="submit" value="Add Machinery Type" class="btn w-100 mt-2" style="background-color: gray">
+                  </div>
+              </form>
+          </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-4 mt-3">
+          <div class="card2 mt-5 p-3" style="border-radius: 25px">
+              <div class="text-center h4">View Machinery Type</div>
+              <table class="table  text-center table-bordered mt-3">
+                <thead class="">
+                    <tr>
+                        <td><b>Machinery Type</b></td>
+                    </tr>
+                    </thead>
+                    {% for machinery_type in machinery_types %}
+                    <tr class="bordered">
+                        <td>{{machinery_type[1]}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+          </div>
+      </div>
+  </div>
+</div>
